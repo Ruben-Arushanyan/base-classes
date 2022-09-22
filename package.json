@@ -1,16 +1,16 @@
 {
-    "name": "base-class",
+    "name": "base-classes",
     "version": "0.0.2",
     "description": "Helpful JavaScript base classes.",
     "license": "MIT",
-    "homepage": "https://github.com/Ruben-Arushanyan/base-class",
+    "homepage": "https://github.com/Ruben-Arushanyan/base-classes",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Ruben-Arushanyan/base-class"
+        "url": "https://github.com/Ruben-Arushanyan/base-classes"
     },
     "bugs": {
-        "url": "https://github.com/Ruben-Arushanyan/base-class/issues",
+        "url": "https://github.com/Ruben-Arushanyan/base-classes/issues",
         "email": "ruben.arushanyan24@gmail.com"
     },
     "keywords": [
