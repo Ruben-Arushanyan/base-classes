@@ -1,0 +1,49 @@
+{
+    "name": "base-class",
+    "version": "0.0.0",
+    "description": "Helpful JavaScript base classes.",
+    "license": "MIT",
+    "homepage": "https://github.com/Ruben-Arushanyan/base-class",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ruben-Arushanyan/base-class"
+    },
+    "bugs": {
+        "url": "https://github.com/Ruben-Arushanyan/base-class/issues",
+        "email": "ruben.arushanyan24@gmail.com"
+    },
+    "keywords": [
+        "javascript",
+        "class",
+        "base-class",
+        "inheritance",
+        "extends"
+    ],
+    "author": {
+        "name": "Ruben Arushanyan",
+        "email": "ruben.arushanyan24@gmail.com",
+        "url": "https://www.linkedin.com/in/ruben-arushanyan-42bba9235/"
+    },
+    "funding": {
+        "type": "individual",
+        "url": "https://github.com/sponsors/Ruben-Arushanyan"
+    },
+    "scripts": {
+        "build": "node scripts/build.js",
+        "test": "npm run to-pack --if-present; node scripts/test.js",
+        "to-pack": "npm run build --if-present; node scripts/to-pack.js"
+    },
+    "packableFiles": [
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "dist/."
+    ],
+    "sideEffects": false,
+    "devDependencies": {
+        "@babel/cli": "^7.18.10",
+        "@babel/core": "^7.19.1",
+        "@babel/preset-env": "^7.19.1"
+    }
+}
