@@ -4,7 +4,7 @@ const execPromise = util.promisify(exec)
 
 const test = async () => {
     await execPromise(`
-        echo "No test specified :)"
+      npx jest test/
   `)
 }
 
