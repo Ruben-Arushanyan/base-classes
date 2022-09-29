@@ -30,7 +30,7 @@ class MyClass extends Store {
 const myClass = new MyClass()
 
 myClass.subscribe((state, prevState) => {
-    console.log('state changed:' state)
+    console.log('state changed:', state)
 })
 myClass.updateState((state) => {
     return {...state, count: 2}
