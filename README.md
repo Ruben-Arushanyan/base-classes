@@ -15,13 +15,17 @@ npm install base-classes
 ### Import
 
 ```js
-import {Store} from 'base-classes/Store'
+import {Store} from 'base-classes'
+```
+OR
+```js
+const {Store} = require('base-classes')
 ```
 
 ### Basic Usage
 
 ```js
-import {Store} from 'base-classes/Store'
+import {Store} from 'base-classes'
 
 class MyClass extends Store {
     state = { count: 1 }
