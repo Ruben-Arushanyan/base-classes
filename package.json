@@ -4,6 +4,7 @@
     "description": "Helpful JavaScript base classes.",
     "license": "MIT",
     "homepage": "https://github.com/Ruben-Arushanyan/base-classes",
+    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/Ruben-Arushanyan/base-classes"
