@@ -9,6 +9,10 @@ class Store {
     state
     prevState
 
+    constructor(initialState) {
+        this.state = this.prevState = initialState
+    }
+
     updateState = (cb) => {
         if (!isFunction(cb)) {
             throw new TypeError('[[updateState()]] argument must be a function');
