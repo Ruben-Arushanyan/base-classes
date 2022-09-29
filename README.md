@@ -15,13 +15,13 @@ npm install base-classes
 ### Import
 
 ```js
-import {Store} from 'secure-event-emitter/Store'
+import {Store} from 'base-classes/Store'
 ```
 
 ### Basic Usage
 
 ```js
-import {Store} from 'secure-event-emitter/Store'
+import {Store} from 'base-classes/Store'
 
 class MyClass extends Store {
     state = { count: 1 }
