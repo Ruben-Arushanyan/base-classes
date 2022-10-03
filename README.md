@@ -44,7 +44,16 @@ myClass.updateState((state) => {
 
 ### API
 
-**constructor**
+- [constructor](#constructor)
+- [state](#state)
+- [updatestate](#updatestate)
+- [subscribe](#subscribe)
+- [subscribeSelector](#subscribeSelector)
+- [prevState](#prevState)
+
+</br>
+
+#### **constructor**
 
 `new Store(initialState?)`
 
@@ -60,7 +69,7 @@ const store = new Store(initialState)
 
 </br>
 
-**state**  
+#### **state**  
 Get the current state of the store.  
 `store.state`
 
@@ -74,7 +83,7 @@ store.state // {count: 1}
 
 </br>
 
-**updateState**  
+#### **updateState**  
 Change state value.  
 `store.updateState(updater)`
 
@@ -94,7 +103,7 @@ store.state // {count: 2}
 
 </br>
 
-**subscribe**  
+#### **subscribe**  
 Subscribe state changes.  
 `store.subscribe(callback)`  
 
@@ -123,7 +132,43 @@ setTimeout(() => {
 }, 10000)
 ```
 
+</br>
 
+#### **subscribeSelector**  
+Subscribe certain values change which is defined by the selector․  
+`store.subscribeSelector(selector, callback)`
+
+- **selector** `<Function>`  
+    The selector is a function that receives state as a first argument and returns a certain selected value.
+- **callback** `<Function>`  
+    A callback is a function that will be called when the selected value changes․ It gets the new value in the first argument and the previous value in the second argument․
+
+```js
+const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
+
+store.subscribeSelector(state => state.firstName, (value, prevValue) => {
+    console.log('firstName changed:', value)
+})
+```
+
+*Return value:*  
+The subscribeSelector method returns a function to unsubscribe the passed callback from listening to selected value changes.
+
+`const unsubscribe = store.subscribeSelector(selector, callback)`
+
+```js
+const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
+
+const unsubscribe = store.subscribeSelector(state => state.firstName, (value, prevValue) => {
+    console.log('firstName changed:', value)
+})
+
+// unsubscribe after 10 seconds
+setTimeout(() => {
+    unsubscribe()
+}, 10000)
+```
+#### **prevState**
 
 ## [Contributing](https://github.com/ruben-arushanyan/base-classes/blob/master/CONTRIBUTING.md)
 
