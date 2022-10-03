@@ -3,7 +3,7 @@
     "version": "1.0.6",
     "description": "Useful JavaScript base classes for efficient and quick solutions to common problems.",
     "license": "MIT",
-    "homepage": "https://github.com/Ruben-Arushanyan/base-classes",
+    "homepage": "https://ruben-arushanyan.github.io/base-classes",
     "main": "index.js",
     "repository": {
         "type": "git",
