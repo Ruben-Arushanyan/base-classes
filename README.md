@@ -46,7 +46,7 @@ myClass.updateState((state) => {
 
 - [constructor](#constructor)
 - [state](#state)
-- [updatestate](#updatestate)
+- [updateState](#updatestate)
 - [subscribe](#subscribe)
 - [subscribeSelector](#subscribeselector)
 - [prevState](#prevstate)
