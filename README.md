@@ -4,6 +4,7 @@
 
 Useful JavaScript base classes for efficient and quick solutions to common problems.
 
+
 ## Installation
 
 ```bash
@@ -12,17 +13,17 @@ npm install base-classes
 
 ## Store
 
-### Import
+The `Store` is a base class that provides the necessary methods and attributes to organize state management efficiently and easily.
+#### Import
 
 ```js
 import {Store} from 'base-classes'
 ```
-OR
 ```js
 const {Store} = require('base-classes')
 ```
 
-### Basic Usage
+#### Basic Usage
 
 ```js
 import {Store} from 'base-classes'
@@ -40,6 +41,54 @@ myClass.updateState((state) => {
     return {...state, count: 2}
 })
 ```
+
+### API
+
+**constructor**
+
+`new Store(initialState?)`
+
+- **initialState** `<any>`  
+    Any value for the initial state of the store.  
+    Default: `undefined`
+
+```js
+const initialState = {count: 1}
+
+const store = new Store(initialState)
+```
+
+**state**  
+Get the current state of the store.  
+`store.state`
+
+```js
+const store = new Store({count: 1})
+
+// Get the current state 
+store.state // {count: 1}
+
+```
+
+**updateState**  
+Change state value.  
+`store.updateState(updater)`
+
+- **updater** `<Function>`  
+    Updater is a function that receives the current state as an argument, and the returned value will be the new state of the store.
+
+```js
+const store = new Store({count: 1})
+
+// Update state
+store.updateState(state => {
+    return {...state, count: state.count + 1}
+})
+
+store.state // {count: 2}
+```
+
+
 
 ## [Contributing](https://github.com/ruben-arushanyan/base-classes/blob/master/CONTRIBUTING.md)
 
