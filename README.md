@@ -1,5 +1,6 @@
-# JavaScript Base Classes
+# [JavaScript Base Classes](https://base-classes.js.org)
 
+> You can find the full documentation on the [website](https://base-classes.js.org).
 ## Description
 
 Useful JavaScript base classes for efficient and quick solutions to common problems.
@@ -11,10 +12,10 @@ Useful JavaScript base classes for efficient and quick solutions to common probl
 npm install base-classes
 ```
 
-## Store
+## [Store](https://base-classes.js.org/docs/store)
 
 The `Store` is a base class that provides the necessary methods and attributes to organize state management efficiently and easily.
-#### Import
+### Import
 
 ```js
 import {Store} from 'base-classes'
@@ -23,7 +24,7 @@ import {Store} from 'base-classes'
 const {Store} = require('base-classes')
 ```
 
-#### Basic Usage
+### Basic Usage
 
 ```js
 import {Store} from 'base-classes'
@@ -42,155 +43,18 @@ myClass.updateState((state) => {
 })
 ```
 
-### API
+### [API](https://base-classes.js.org/docs/store/#api)
 
-- [constructor](#constructor)
-- [state](#state)
-- [updateState](#updatestate)
-- [subscribe](#subscribe)
-- [subscribeSelector](#subscribeselector)
-- [prevState](#prevstate)
-
-</br>
-
-#### **constructor**
-
-`new Store(initialState?)`
-
-- **initialState** `<any>`  
-    Any value for the initial state of the store.  
-    Default: `undefined`
-
-```js
-const initialState = {count: 1}
-
-const store = new Store(initialState)
-```
+- [constructor](https://base-classes.js.org/docs/store/#constructor)
+- [state](https://base-classes.js.org/docs/store/#state)
+- [updateState](https://base-classes.js.org/docs/store/#updatestate)
+- [subscribe](https://base-classes.js.org/docs/store/#subscribe)
+- [subscribeSelector](https://base-classes.js.org/docs/store/#subscribeselector)
+- [prevState](https://base-classes.js.org/docs/store/#prevstate)
 
 </br>
-
-#### **state**  
-Get the current state of the store.  
-`store.state`
-
-```js
-const store = new Store({count: 1})
-
-// Get the current state 
-store.state // {count: 1}
-
-```
-
 </br>
 
-#### **updateState**  
-Change state value.  
-`store.updateState(updater)`
-
-- **updater** `<Function>`  
-    Updater is a function that receives the current state as an argument, and the returned value will be the new state of the store.
-
-```js
-const store = new Store({count: 1})
-
-// Update state
-store.updateState(state => {
-    return {...state, count: state.count + 1}
-})
-
-store.state // {count: 2}
-```
-
-</br>
-
-#### **subscribe**  
-Subscribe state changes.  
-`store.subscribe(callback)`  
-
-- **callback** `<Function>`  
-    A callback is a function that will be called when the state changes․ It gets the new state in the first argument and the previous state in the second argument․
-
-```js
-store.subscribe((state, prevState) => {
-    console.log('state changed:', state)
-})
-```
-
-*Return value:*  
-The subscribe method returns a function to unsubscribe the passed callback from listening to state changes.
-
-`const unsubscribe = store.subscibe(callback)`
-
-```js
-const unsubscribe = store.subscribe((state, prevState) => {
-    console.log('state changed:', state)
-})
-
-// unsubscribe after 10 seconds
-setTimeout(() => {
-    unsubscribe()
-}, 10000)
-```
-
-</br>
-
-#### **subscribeSelector**  
-Subscribe certain values change which is defined by the selector․  
-`store.subscribeSelector(selector, callback)`
-
-- **selector** `<Function>`  
-    The selector is a function that receives state as a first argument and returns a certain selected value.
-- **callback** `<Function>`  
-    A callback is a function that will be called when the selected value changes․ It gets the new value in the first argument and the previous value in the second argument․
-
-```js
-const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
-
-store.subscribeSelector(state => state.firstName, (value, prevValue) => {
-    console.log('firstName changed:', value)
-})
-```
-
-*Return value:*  
-The subscribeSelector method returns a function to unsubscribe the passed callback from listening to selected value changes.
-
-`const unsubscribe = store.subscribeSelector(selector, callback)`
-
-```js
-const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
-
-const unsubscribe = store.subscribeSelector(state => state.firstName, (value, prevValue) => {
-    console.log('firstName changed:', value)
-})
-
-// unsubscribe after 10 seconds
-setTimeout(() => {
-    unsubscribe()
-}, 10000)
-```
-
-</br>
-
-#### **prevState**  
-Get the previous state of the store.  
-`store.prevState`
-
-```js
-const store = new Store({count: 1})
-
-store.updateState(state => {
-    return {...state, count: 2}
-})
-// Get the current state 
-store.state // {count: 2}
-
-// Get the previous state 
-store.prevState // {count: 1}
-
-```
-
-
-</br>
 
 ## [Contributing](https://github.com/ruben-arushanyan/base-classes/blob/master/CONTRIBUTING.md)
 

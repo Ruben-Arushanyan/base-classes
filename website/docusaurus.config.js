@@ -17,8 +17,8 @@ const additonalInfo = {
 const config = {
   title: 'Base Classes',
   tagline: 'Useful JavaScript base classes for efficient and quick solutions to common problems.',
-  url: 'https://ruben-arushanyan.github.io',
-  baseUrl: '/base-classes/',
+  url: 'https://base-classes.js.org',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'images/favicon.ico',
