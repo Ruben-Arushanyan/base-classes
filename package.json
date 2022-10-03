@@ -1,7 +1,7 @@
 {
     "name": "base-classes",
     "version": "1.0.2",
-    "description": "Helpful JavaScript base classes.",
+    "description": "Useful JavaScript base classes for efficient and quick solutions to common problems.",
     "license": "MIT",
     "homepage": "https://github.com/Ruben-Arushanyan/base-classes",
     "main": "index.js",
@@ -17,8 +17,16 @@
         "javascript",
         "class",
         "base-class",
+        "class-based",
+        "superclass",
+        "parent-class",
+        "object-oriented",
+        "oop",
         "inheritance",
-        "extends"
+        "inherited",
+        "encapsulation",
+        "extends",
+        "constructor"
     ],
     "author": {
         "name": "Ruben Arushanyan",
