@@ -48,8 +48,8 @@ myClass.updateState((state) => {
 - [state](#state)
 - [updatestate](#updatestate)
 - [subscribe](#subscribe)
-- [subscribeSelector](#subscribeSelector)
-- [prevState](#prevState)
+- [subscribeSelector](#subscribeselector)
+- [prevState](#prevstate)
 
 </br>
 
@@ -168,7 +168,29 @@ setTimeout(() => {
     unsubscribe()
 }, 10000)
 ```
-#### **prevState**
+
+</br>
+
+#### **prevState**  
+Get the previous state of the store.  
+`store.prevState`
+
+```js
+const store = new Store({count: 1})
+
+store.updateState(state => {
+    return {...state, count: 2}
+})
+// Get the current state 
+store.state // {count: 2}
+
+// Get the previous state 
+store.prevState // {count: 1}
+
+```
+
+
+</br>
 
 ## [Contributing](https://github.com/ruben-arushanyan/base-classes/blob/master/CONTRIBUTING.md)
 
