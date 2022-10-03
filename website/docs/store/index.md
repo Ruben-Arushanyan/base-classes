@@ -36,15 +36,12 @@ myClass.updateState((state) => {
 
 ## API
 
-- ### [constructor](#constructor)
-- ### [state](#state)
-- ### [updateState](#updatestate)
-- ### [subscribe](#subscribe)
-- ### [subscribeSelector](#subscribeselector)
-- ### [prevState](#prevstate)
-
-
-<br></br>
+- [constructor](#constructor)
+- [state](#state)
+- [updateState](#updatestate)
+- [subscribe](#subscribe)
+- [subscribeSelector](#subscribeselector)
+- [prevState](#prevstate)
 
 ### **constructor**
 
