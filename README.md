@@ -2,7 +2,7 @@
 
 ## Description
 
-Helpful JavaScript base classes.
+Useful JavaScript base classes for efficient and quick solutions to common problems.
 
 ## Installation
 
