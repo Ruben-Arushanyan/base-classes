@@ -58,6 +58,8 @@ const initialState = {count: 1}
 const store = new Store(initialState)
 ```
 
+</br>
+
 **state**  
 Get the current state of the store.  
 `store.state`
@@ -69,6 +71,8 @@ const store = new Store({count: 1})
 store.state // {count: 1}
 
 ```
+
+</br>
 
 **updateState**  
 Change state value.  
@@ -86,6 +90,37 @@ store.updateState(state => {
 })
 
 store.state // {count: 2}
+```
+
+</br>
+
+**subscribe**  
+Subscribe state changes.  
+`store.subscribe(callback)`  
+
+- **callback** `<Function>`  
+    A callback is a function that will be called when the state changes․ It gets the new state in the first argument and the previous state in the second argument․
+
+```js
+store.subscribe((state, prevState) => {
+    console.log('state changed:', state)
+})
+```
+
+*Return value:*  
+The subscribe method returns a function to unsubscribe the passed callback from listening to state changes.
+
+`const unsubscribe = store.subscibe(callback)`
+
+```js
+const unsubscribe = store.subscribe((state, prevState) => {
+    console.log('state changed:', state)
+})
+
+// unsubscribe after 10 seconds
+setTimeout(() => {
+    unsubscribe()
+}, 10000)
 ```
 
 
