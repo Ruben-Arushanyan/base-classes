@@ -52,6 +52,8 @@ myClass.updateState((state) => {
     Default: `undefined`
 
 ```js
+import {Store} from 'base-classes'
+
 const initialState = {count: 1}
 
 const store = new Store(initialState)
@@ -64,6 +66,8 @@ Get the current state of the store.
 `store.state`
 
 ```js
+import {Store} from 'base-classes'
+
 const store = new Store({count: 1})
 
 // Get the current state 
@@ -81,6 +85,8 @@ Change state value.
     Updater is a function that receives the current state as an argument, and the returned value will be the new state of the store.
 
 ```js
+import {Store} from 'base-classes'
+
 const store = new Store({count: 1})
 
 // Update state
@@ -101,6 +107,10 @@ Subscribe state changes.
     A callback is a function that will be called when the state changes․ It gets the new state in the first argument and the previous state in the second argument․
 
 ```js
+import {Store} from 'base-classes'
+
+const store = new Store({count: 1})
+
 store.subscribe((state, prevState) => {
     console.log('state changed:', state)
 })
@@ -112,6 +122,10 @@ The subscribe method returns a function to unsubscribe the passed callback from 
 `const unsubscribe = store.subscibe(callback)`
 
 ```js
+import {Store} from 'base-classes'
+
+const store = new Store({count: 1})
+
 const unsubscribe = store.subscribe((state, prevState) => {
     console.log('state changed:', state)
 })
@@ -134,6 +148,8 @@ Subscribe certain values change which is defined by the selector․
     A callback is a function that will be called when the selected value changes․ It gets the new value in the first argument and the previous value in the second argument․
 
 ```js
+import {Store} from 'base-classes'
+
 const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
 
 store.subscribeSelector(state => state.firstName, (value, prevValue) => {
@@ -147,6 +163,8 @@ The subscribeSelector method returns a function to unsubscribe the passed callba
 `const unsubscribe = store.subscribeSelector(selector, callback)`
 
 ```js
+import {Store} from 'base-classes'
+
 const store = new Store({firstName: 'Ruben', lastName: 'Arushanyan'})
 
 const unsubscribe = store.subscribeSelector(state => state.firstName, (value, prevValue) => {
@@ -166,6 +184,8 @@ Get the previous state of the store.
 `store.prevState`
 
 ```js
+import {Store} from 'base-classes'
+
 const store = new Store({count: 1})
 
 store.updateState(state => {
