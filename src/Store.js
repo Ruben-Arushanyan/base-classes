@@ -28,11 +28,9 @@ class Store {
 
     subscribe = (cb) => {
         cb = memoizeByArgs(cb)
-        let _order = 0;
         const _cb = (order) => {
-            if (order > _order) {
+            if (order >= this.#order) {
                 cb(this.state, this.prevState)
-                _order = order
             }
         }
 
