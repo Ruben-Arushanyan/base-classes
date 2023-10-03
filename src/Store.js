@@ -26,7 +26,7 @@ class Store {
     }
 
     subscribe = (cb) => {
-        const _cb = (...args) => cb(args)
+        const _cb = (...args) => cb(...args)
         this.#emitter.on(_cb)
         return () =>  this.#emitter.off(_cb)
     }
