@@ -1,5 +1,5 @@
 import { SingularEventEmitter } from 'secure-event-emitter'
-import { isFunction, eq } from './utils'
+import { isFunction, eq, memoizeByArgs } from './utils'
 
 
 class Store {
@@ -26,7 +26,11 @@ class Store {
     }
 
     subscribe = (cb) => {
-        const _cb = () => cb(this.state, this.prevState)
+        cb = memoizeByArgs(cb)
+        const _cb = () => {
+            cb(this.state, this.prevState)
+        }
+
         this.#emitter.on(_cb)
         return () =>  this.#emitter.off(_cb)
     }
