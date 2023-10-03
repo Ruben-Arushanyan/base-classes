@@ -26,6 +26,52 @@ test('Store | updateState', () => {
     expect(store.state).toEqual({a: 1, b: 2})
 })
 
+// updateStateImmer
+test('Store | updateStateImmer', () => {
+    const s1 = {
+        a: {
+            b: 2,
+            c: 3,
+        },
+        d: {
+            e: 100,
+            f: 200,
+        }
+    }
+    const store = new Store(s1)
+    store.updateState((state) => {
+        state.a.b = 22
+    })
+    expect(store.state).toEqual({
+        a: {
+            b: 22,
+            c: 3,
+        },
+        d: {
+            e: 100,
+            f: 200,
+        }
+    })
+    expect(store.state.d).toBe(s1.d)
+
+
+    const s2 = {a: 1, b: 2}
+    store.updateState((state) => {
+        return s2
+    })
+
+    expect(store.state).toEqual(s2)
+    expect(store.state).toBe(s2)
+
+    store.updateState((state) => {
+        state.a = 1
+        state.b = 2
+    })
+
+    expect(store.state).toEqual(s2)
+    expect(store.state).toBe(s2)
+})
+
 // subscribe
 test('Store | subscribe', () => {
     const stack = []
