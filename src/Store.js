@@ -1,6 +1,6 @@
 import { SingularEventEmitter } from 'secure-event-emitter'
 import { isFunction, eq, memoizeByArgs } from './utils'
-
+import { produce } from 'immer'
 
 class Store {
     #emitter_key = Symbol()
@@ -24,6 +24,13 @@ class Store {
             this.state = newState
             this.#emitter.unlock(this.#emitter_key).emit(++this.#order)
         }
+    }
+
+    updateStateImmer = (cb) => {
+        if (!isFunction(cb)) {
+            throw new TypeError('[[updateStateImmer()]] argument must be a function');
+        }
+        this.updateState(() => produce(this.state, cb))
     }
 
     subscribe = (cb) => {
