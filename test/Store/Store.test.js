@@ -39,7 +39,7 @@ test('Store | updateStateImmer', () => {
         }
     }
     const store = new Store(s1)
-    store.updateState((state) => {
+    store.updateStateImmer((state) => {
         state.a.b = 22
     })
     expect(store.state).toEqual({
@@ -56,14 +56,14 @@ test('Store | updateStateImmer', () => {
 
 
     const s2 = {a: 1, b: 2}
-    store.updateState((state) => {
+    store.updateStateImmer((state) => {
         return s2
     })
 
     expect(store.state).toEqual(s2)
     expect(store.state).toBe(s2)
 
-    store.updateState((state) => {
+    store.updateStateImmer((state) => {
         state.a = 1
         state.b = 2
     })
