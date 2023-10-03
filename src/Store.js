@@ -5,6 +5,7 @@ import { isFunction, eq, memoizeByArgs } from './utils'
 class Store {
     #emitter_key = Symbol()
     #emitter = new SingularEventEmitter(this.#emitter_key)
+    #order = 0;
 
     state
     prevState
@@ -21,14 +22,18 @@ class Store {
         if (!eq(newState, this.state)) {
             this.prevState = this.state
             this.state = newState
-            this.#emitter.unlock(this.#emitter_key).emit()
+            this.#emitter.unlock(this.#emitter_key).emit(++this.#order)
         }
     }
 
     subscribe = (cb) => {
         cb = memoizeByArgs(cb)
-        const _cb = () => {
-            cb(this.state, this.prevState)
+        let _order = 0;
+        const _cb = (order) => {
+            if (order > _order) {
+                cb(this.state, this.prevState)
+                _order = order
+            }
         }
 
         this.#emitter.on(_cb)
