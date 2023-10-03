@@ -32,7 +32,7 @@ class Store {
     }
 
     subscribeSelector = (selector, cb) => {
-        let prevValue = selector(this.prevState)
+        let prevValue = selector(this.state)
         return this.subscribe(() => {
             const newValue = selector(this.state)
             if (!eq(newValue, prevValue)) {
