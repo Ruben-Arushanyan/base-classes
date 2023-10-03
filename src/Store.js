@@ -21,12 +21,12 @@ class Store {
         if (!eq(newState, this.state)) {
             this.prevState = this.state
             this.state = newState
-            this.#emitter.unlock(this.#emitter_key).emit(this.state, this.prevState)
+            this.#emitter.unlock(this.#emitter_key).emit()
         }
     }
 
     subscribe = (cb) => {
-        const _cb = (...args) => cb(...args)
+        const _cb = () => cb(this.state, this.prevState)
         this.#emitter.on(_cb)
         return () =>  this.#emitter.off(_cb)
     }
